@@ -16,8 +16,8 @@ class RC4Spec {
     @Test
     fun test() {
         for ((key, plaintext, expected) in triples) {
-            val keyBytes = key.toByteArray(Charsets.UTF_8)
-            val plaintextBytes = plaintext.toByteArray(Charsets.UTF_8)
+            val keyBytes = key.encodeToByteArray()
+            val plaintextBytes = plaintext.encodeToByteArray()
             val expectedBytes = expected.hexToByteArray()
 
             val ciphertext = RC4.fromKey(keyBytes).encrypt(plaintextBytes)
